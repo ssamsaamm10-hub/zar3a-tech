@@ -11,7 +11,7 @@ type K = 'moisture' | 'airTemp' | 'humidity' | 'waterLevel'
 const Slider = ({ label, k, min, max, thr }: { label: string; k: K; min: number; max: number; thr: number }) => {
   const v = useTwin(s => s.sim[k]); const patch = useTwin(s => s.patch)
   const bad = k === 'moisture' || k === 'waterLevel' ? v < thr : v > thr
-  return <div className="row"><label style={{ width: 120 }}>{label}</label>
+  return <div className="row"><label style={{ width: 'clamp(80px,28%,120px)' }}>{label}</label>
     <input type="range" aria-label={label} min={min} max={max} value={v} onChange={e => patch({ [k]: +e.target.value })} />
     <span className="mono" style={{ width: 70, color: bad ? '#f87171' : '#34d399' }}>{v.toFixed(1)} {bad ? '▲!' : '✓'}</span></div>
 }

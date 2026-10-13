@@ -32,7 +32,7 @@ export function AnchorEditor() {
 const STEPS = ['Orbit the 3D twin; press 1 / 2 to switch models.', 'Drag sliders: moisture < 30 starts the pump, RH > 75 starts the fan.', 'Use Faults to test low water, sensor loss and mains loss.', 'Press Demo for a scripted story of dry soil, humidity spike, low water and refill.']
 export function Tour() {
   const { tour, setTour } = useTwin(); if (tour >= STEPS.length) return null
-  return <div className="card" style={{ position: 'absolute', bottom: 8, left: 8, right: 8, zIndex: 3 }}>Tour {tour + 1}/{STEPS.length}: {STEPS[tour]}{' '}
+  return <div className="card tour" style={{ position: 'absolute', bottom: 8, left: 8, right: 8, zIndex: 3 }}>Tour {tour + 1}/{STEPS.length}: {STEPS[tour]}{' '}
     <button onClick={() => setTour(tour + 1)}>Next</button><button onClick={() => setTour(99)}>Skip</button></div>
 }
 const g = () => (Math.random() + Math.random() + Math.random() - 1.5) * 2 * CFG.noise / 1.5

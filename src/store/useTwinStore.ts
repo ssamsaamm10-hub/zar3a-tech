@@ -11,7 +11,7 @@ interface Store { refilling: boolean; refill: () => void; anchors: Record<'assem
   addLog: (m: string) => void }
 let manualT = 0, n10 = 0
 export const useTwin = create<Store>((set, get) => ({
-  anchors: JSON.parse(JSON.stringify(CFG.anchors)), showAnchors: false, showLabels: true, tour: 0,
+  anchors: JSON.parse(JSON.stringify(CFG.anchors)), showAnchors: false, showLabels: typeof window === 'undefined' || window.innerWidth >= 700, tour: 0,
   setAnchor: (m, n, i, v) => { const a = JSON.parse(JSON.stringify(get().anchors)); a[m][n][i] = v; set({ anchors: a }) },
   setFlag: (k, v) => set({ [k]: v } as Partial<Store>), setTour: tour => set({ tour }),
   demo: () => { const g = get(); g.reset(); g.setSpeed(20); g.setPaused(false)

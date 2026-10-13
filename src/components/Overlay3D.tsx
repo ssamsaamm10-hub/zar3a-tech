@@ -28,7 +28,7 @@ export default function Overlay3D() {
   return <group><Alarm /><Pour />
     {showLabels && Object.keys(NAMES).map(k => <Html key={k} position={pos(k)} center style={{ pointerEvents: 'none' }}>
       <div style={{ fontSize: 10, whiteSpace: 'nowrap', padding: '1px 5px', borderRadius: 6, color: active(k) ? '#04130d' : '#d1fae5', background: active(k) ? (k === 'tank' || k === 'probe' ? '#f87171' : '#34d399') : 'rgba(11,18,16,.7)', border: '1px solid #10b981' }}>{NAMES[k]}</div></Html>)}
-    {model === 'assembled' && <Html position={pos('oled')} center><pre className="oled" style={{ margin: 0, fontSize: 9, transform: 'scale(.8)' }}>{oledText(sim)}</pre></Html>}
+    {model === 'assembled' && <Html position={pos('oled')} center><pre className="oled oled3d" style={{ margin: 0, fontSize: 9, transform: 'scale(.8)' }}>{oledText(sim)}</pre></Html>}
     {showAnchors && Object.keys(A).map(k => <mesh key={k} position={pos(k)}><sphereGeometry args={[0.04]} /><meshBasicMaterial color="#f0abfc" depthTest={false} />
       <Html distanceFactor={8}><small style={{ color: '#f0abfc', fontSize: 9 }}>{k}</small></Html></mesh>)}
   </group>

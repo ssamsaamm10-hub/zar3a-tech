@@ -1,7 +1,21 @@
 body{margin:0;background:#0b1210;color:#d1fae5;font-family:Inter,system-ui,sans-serif}
-.app{display:grid;grid-template-columns:58% 42%;height:100vh}@media(max-width:1000px){.app{grid-template-columns:1fr;grid-template-rows:45vh auto;height:auto}}
+.app{display:grid;grid-template-columns:58% 42%;height:100vh}
 .panel{overflow:auto;padding:12px}.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:12px;padding:10px;margin-bottom:10px}
 .mono{font-family:'JetBrains Mono',monospace}button{background:#10b981;color:#04130d;border:0;border-radius:8px;padding:6px 10px;margin:2px;cursor:pointer;font-weight:600}button:focus-visible,input:focus-visible{outline:2px solid #22d3ee}
 .oled{background:#000;color:#22d3ee;font-family:'VT323',monospace;padding:8px;border:4px solid #222;border-radius:6px;white-space:pre;text-shadow:0 0 6px #22d3ee}
 .row{display:flex;align-items:center;gap:8px;margin:4px 0}.row input{flex:1}.vp{position:relative;min-height:45vh}.ov{position:absolute;top:8px;left:8px;z-index:2}
 .buzz{background:#ef4444;color:#fff;padding:2px 6px;border-radius:6px;font-size:11px;animation:buzz .3s infinite}@keyframes buzz{0%,100%{transform:translateX(-2px)}50%{transform:translateX(2px)}}@media(prefers-reduced-motion:reduce){.buzz{animation:none}}
+
+body{overflow-x:hidden}
+@media(max-width:1000px){
+ .app{display:block;height:auto}
+ .vp{position:sticky;top:0;z-index:5;height:42vh;height:42svh;min-height:0;border-bottom:1px solid rgba(16,185,129,.4)}
+ .panel{overflow:visible;padding:8px}
+ button{min-height:38px;padding:6px 10px}
+ .ov{top:4px;left:4px}.ov .card{padding:5px 8px;font-size:12px;margin-bottom:4px}.ov button{min-height:30px;padding:3px 7px;font-size:12px}
+ .oled{font-size:11px;padding:4px;border-width:2px}
+ .tour{font-size:12px;padding:6px!important;bottom:4px!important;left:4px!important;right:4px!important}
+ .row{flex-wrap:wrap}.row input[type=range]{min-width:120px}
+ .card{padding:8px}
+}
+@media(max-width:700px){.oled3d{display:none}}

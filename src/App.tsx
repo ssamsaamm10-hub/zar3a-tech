@@ -22,10 +22,11 @@ export default function App() {
   useEffect(() => { const h = (e: KeyboardEvent) => { if (e.key === '1') setModel('assembled'); if (e.key === '2') setModel('cutaway') }; addEventListener('keydown', h); return () => removeEventListener('keydown', h) }, [setModel])
   return <div className="app">
     <div className="vp"><div className="ov">
-      <div className="card"><b>ZAR3A-TECH</b> · {model.toUpperCase()}<br />
+      <div className="card sw"><span className="ttl"><b>ZAR3A-TECH</b> · {model.toUpperCase()}<br /></span>
         <button onClick={() => setModel('assembled')}>ASSEMBLED (1)</button><button onClick={() => setModel('cutaway')}>CUTAWAY (2)</button></div>
-      <div className="oled">{oledText(s)}</div></div><Scene /><Tour /></div>
+      <div className="oled">{oledText(s)}</div></div><Scene /></div>
     <div className="panel">
+      <Tour /><div className="oled oled-panel">{oledText(s)}</div>
       <div className="card">State: <b>{systemState(s)}</b> · Pump CH1 {s.pumpOn ? 'ON' : 'OFF'} · Fan CH2 {s.fanOn ? 'ON' : 'OFF'} · {s.acLoss ? `BATTERY ${s.battery.toFixed(0)}%` : 'DC ADAPTER'}<br />
         <button onClick={() => setPaused(!paused)}>{paused ? 'Resume' : 'Pause'}</button>
         {([1, 5, 20, 60] as const).map(x => <button key={x} style={{ opacity: speed === x ? 1 : 0.5 }} onClick={() => setSpeed(x)}>{x}×</button>)}

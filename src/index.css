@@ -19,3 +19,11 @@ body{overflow-x:hidden}
  .card{padding:8px}
 }
 @media(max-width:700px){.oled3d{display:none}}
+
+.oled-panel{display:none}
+@media(max-width:1000px){
+ .vp{height:56vh;height:56svh}
+ .ov .oled,.ov .ttl{display:none}
+ .ov .card{background:rgba(11,18,16,.55);padding:3px;margin:0;border-radius:8px}
+ .oled-panel{display:block;margin-bottom:8px}
+}
